@@ -150,12 +150,26 @@ Los repositorios son puentes entre los datos y las operaciones que se encuentran
 El patrón de diseño Repository puede ayudar a separar las capas de una aplicación web ASP.NET ya que provee una arquitectura de 3 capas separadas, lo que mejora el mantenimiento de la aplicación y ayuda a reducir errores. Además facilita las pruebas unitarias.
 
 \subsection{Patrón Active Record}
-AGREGAR CONTENIDO.\cite{referenciaQuispe1}
+Active Record es un patrón en el cual, el objeto contiene los datos que representan a una fila (o tupla) de nuestra tabla o vista, además de encapsular la lógica necesaria para acceder a la base de datos. De esta forma el acceso a datos se presenta de manera uniforme a través de la aplicación (lógica de negocio + acceso a datos en una misma clase). En la figura 2 se muestra un esquema del patrón Active Record.
+
+Una clase Active Record consiste en el conjunto de propiedades que representa las columnas de la tabla más los típicos métodos de acceso como las operaciones CRUD (Create, Read, Update, Delete), búsqueda (Find), validaciones, y métodos de negocio.\cite{referenciaQuispe2}
+
+Este patrón constituye la aproximación más obvia, poniendo el acceso a la base datos en el propio objeto de negocio. De este modo es evidente como manipular la persistencia a través de él mismo. Gran parte de este patrón viene de un Domain Model y esto significa que las clases están muy cercanas a la representación en la base de datos. Cada Active Record es responsable de sí mismo, tanto en lo
+relacionado con persistencia como en su lógica de negocio.\cite{referenciaQuispe3}
 
 \subsection{SubSonic y NHibernate}
-AGREGAR CONTENIDO\cite{referenciaQuispe2}
-\\
-AGREGAR CONTENIDO.\cite{referenciarobles2}
+Las herramientas ORM (Object-Relational Mapping) se utilizan para convertir los datos entre el sistema de tipos utilizado en un lenguaje de programación orientado a objetos y el utilizado en una base de datos relacional, a través de un motor de persistencia. Esto se traduce en que las herramientas ORM permiten almacenar objetos en una base de datos de forma permanente, y extraerlos cuando sea
+necesario.
+
+Subsonic es una herramienta ORM libre, de código abierto creada por Rob Conery. Inspirado por Ruby on Rails. Subsonic toma un acercamiento minimalista al código y enfatiza convención sobre configuración. Aunque se inspira en Ruby on Rails, no es una parte de él, sino que toma las ideas de Ruby on Rails y las adapta a la plataforma ya existente ASP.NET. [7]
+
+A diferencia de otros ORM, SubSonic usa el método de la generación y compilación del nivel de acceso de datos en lugar de realizar una asignación basada en reflexión en el tiempo de ejecución. Al igual que muchos ORM, SubSonic soporta los sistemas de bases de datos más comunes, entre ellos: SQL Server, MySQL, SQLite, Oracle, IBM DB2, PostgreSQL, SQL CE, VistaDB y también hace muy fácil la migración del
+acceso a datos entre estos [8].
+
+NHibernate es la conversión de Hibernate de lenguaje Java a C# para su integración en la plataforma .NET. Al igual que Hibernate, NHibernate es una herramienta de ORM que facilita el mapeo de atributos entre una base de datos relacional tradicional y el modelo de objetos de una aplicación, mediante archivos declarativos (XML). Hibernate fue una iniciativa de un grupo de desarrolladores dispersos
+alrededor del mundo conducido por Gaving King.
+
+Al usar NHibernate para el acceso a datos el desarrollador se asegura de que su aplicación es agnóstica en cuanto al motor de base de datos a utilizar en producción, pues NHibernate soporta los más habituales en el mercado: MySQL, PostgreSQL, Oracle, MS SQL Server, etc. Sólo se necesita cambiar una línea en el fichero de configuración para que podamos utilizar una base de datos distinta. Ambas herramientas tienen sus ventajas y desventajas, pero generalmente la selección de uno u otro es una cuestión de preferencia personal.
 
 
 %%PORLES
@@ -178,10 +192,14 @@ AGREGAR CONTENIDO
 
 %CONCLUSIONES-------------------------------------------------------------------------------------------
 \section{Conclusiones}
-%%JOSE LUIS***************************************************************************************************************************************
-\subsection{Conclusión }	
-AGREGAR CONTENIDO
-%%***************************************************************************************************************************************
+El uso de este modelo es muy efectivo ya que no evita la inclusion de sentencias SQL embebidas en el codigo de la aplicacion, lo que facilita que la migracion a otro sistema gestor de base de datos. Lo cual tambien es una ayuda ya que evita que se cometan muchos errores humanos que comunmente suelen ocurrir.
+
+De cualquier modo utilizar un ORM no debe ser considerado una panacea, sino que debe usarse a discreción; teniendo en cuenta las particularidades de cada problema a modelar. En determinados casos no es recomendable el uso de un ORM, sobre todo cuando se imponen tiempos de respuesta mínimos o se requiere una menor sobrecarga. En estos casos lo más conveniente es el uso de un microORM;
+evitando siempre que sea posible las inyecciones de SQL Inline.
+
+Lo anteriormente expuesto libera a los desarrolladores de aplicaciones de la responsabilidad de conocer las múltiples variantes de SQL que existen en función del gestor de bases de datos que se utilice. No obstante, en escenarios en que se necesite hacer un uso más eficiente del sistema de almacenamiento de información, personalizado de acuerdo a las necesidades de la aplicación, y se escoja como gestor de bases de datos una variante NoSQL no es necesaria la utilización de un ORM.
+
+En resumen, en dependencia del gestor de bases de datos a emplear, se recomienda siempre que sea posible y sea factible la utilización de un ORM.	
 
 %%-------------------------------------------------------------------------------------------
 
