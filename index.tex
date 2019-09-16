@@ -143,6 +143,13 @@ La tarea principal será la automatización, reducir los tiempos de despliegue d
 
 %%JOSE LUIS*******************************************************************************************************************
 \subsection{Patrón Repository}
+El patrón Repository utiliza un repositorio para separar la lógica que recupera los datos y los mapea al modelo de entidades, de la lógica del negocio que actúa en el modelo. El repositorio media entre la capa de fuente de datos y la capa de negocios de la aplicación; encuesta a la fuente de datos, mapea los datos obtenidos de la fuente de datos a la entidad de negocio y persisten los cambios de la entidad de negocio a la fuente de datos. En la figura 1 se muestra un esquema patrón Repository.
+
+Los repositorios son puentes entre los datos y las operaciones que se encuentran en distintos dominios. Un repositorio elabora las consultas correctas a la fuente de datos y mapea los resultados a las entidades de negocio expuestas externamente. Los repositorios eliminan las dependencias a tecnologías específicas proveyendo acceso a datos de cualquier tipo.\cite{referenciaQuispe1}
+
+El patrón de diseño Repository puede ayudar a separar las capas de una aplicación web ASP.NET ya que provee una arquitectura de 3 capas separadas, lo que mejora el mantenimiento de la aplicación y ayuda a reducir errores. Además facilita las pruebas unitarias.
+
+
 AGREGAR CONTENIDO \cite{referenciaQuispe1}
 
 \subsection{Patrón Active Record}
