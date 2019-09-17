@@ -174,11 +174,43 @@ Al usar NHibernate para el acceso a datos el desarrollador se asegura de que su 
 
 %%PORLES
 
-\subsection{ALGO ADICIONAL}
 
-AGREGAR CONTENIDO.\cite{referenciaporlles1}
+
+%%SANDOVAL
+\subsection{Ventajas y Desventajas}
 
 %%*****************************
+
+
+\ begin { itemize }
+\ item Ventajas :
+\ begin { enumerate }
+\ item Rapidez en el desarrollo 
+\ item Abstraccion de la base de datos 
+\ item Reutilización.
+\ item Seguridad.
+\ item Mantenimiento del código.
+\ item Lenguaje propio para realizar las consultas.
+
+\end{ enumerate }
+\ item Desventajas :
+\ begin { enumerate }
+\ item Tiempo utilizado en el aprendizaje. Este tipo de herramientas suelen ser complejas por lo que su correcta utilización lleva un tiempo que hay que emplear en ver el funcionamiento correcto y ver todo el partido que se le puede sacar. 
+\ item Aplicaciones algo más lentas. Esto es debido a que todas las consultas que se hagan sobre la base de datos, el sistema primero deberá de transformarlas al lenguaje propio de la herramienta, luego leer los registros y por último crear los objetos.
+\end{ itemize }
+
+\\
+\\
+Las bases de datos relacionales solo permiten guardar tipos de datos primitvos (enteros,cadenas de texto,etc…) por lo que no se puede guardar de forma directa los objetos de laaplicación en las tablas, sino que estos se deben de convertir antes en registros, que por logeneral afectan a varias tablas. En el momento de volver a recuperar los datos, hay quehacer el proceso contrario, se deben convertir los registros en objetos.
+\\
+Es entonces cuando ORM cobra importancia, ya que se encarga de forma automática deconvertir los objetos en registros y viceversa, simulando así tener una base de datosorientada a objetos.ORM 
+
+
+
+
+
+
+
 
 
 
