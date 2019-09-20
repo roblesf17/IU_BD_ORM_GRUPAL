@@ -26,88 +26,44 @@
 
 %% INICIO - ANTHONYROBLES *************************************************************************************************************************************************************************************************
 %% Text of abstract
-Developing applications following the object-oriented paradigm makes programmers face, among other challenges, the problem of data persistence, due to differences between the relational model and objectoriented model. This problem most of the cases is solved with the help of certain tools that handle automatically data access generation, abstracting the programmer from this problem.
+Object-Relational Mapping is a technique used in programming to convert the types of data with which a language oriented to work
+objects to data types with which a relational database management system works for data persistence. Basically consists
+The Object-Relational Mapping is considered to be a technique that is used in programming in order to convert the types of data with which an object-oriented language works 
+to data types with which a database management system works of the relational type. It consists of a technique that will allow us to map each of the rows of our tables in the database 
+to objects, where the columns of the table correspond to the properties of these objects.
 		\end{abstract}
 \end{frontmatter}
 
 
 \section{Resumen}
 
-Al desarrollar una aplicación siguiendo el paradigma orientado a objetos, los programadores se
-enfrentan, entre otros desafíos, al problema de la persistencia de los datos, debido a las diferencias que
-existen entre el modelo relacional y el modelo orientado a objetos. Este problema la mayoría de los
-casos es solucionado con la ayuda de ciertas herramientas que se encargan de generar de manera
-automática el acceso a datos, abstrayendo al programador de este problema.
-
+El Mapeo Objeto-Relacional se le considera que es una técnica que se usa en programación con la finalidad de convertir
+ los tipos de datos con los que trabaja un lenguaje orientado a objetos a tipos de datos con los que trabaja un sistema gestor 
+de base de datos del tipo relacional. Consiste en una técnica que nos permitirá mapear cada una de las filas de nuestras tablas
+ en la base de datos a objetos, en donde las columnas de la tabla corresponden a las propiedades de estos objetos.
 
 %%file:///C:/Users/Anthony%20Robles/Downloads/23-77-3-PB.pdf
 
 %%INTRODUCCION%%
 \section{Introducción}
 
-El Modelo Relacional es un modelo de datos basado en la lógica de predicado y en la teoría de conjuntos
-para la gestión de una base de datos. Siguiendo este modelo se puede construir una base de datos
-relacional que no es más que un conjunto de una o más tablas estructuradas en registros (filas) y
-campos (columnas), que se vinculan entre sí por un campo en común. Sin embargo, en el Modelo
-Orientado a Objetos en una única entidad denominada objeto, se combinan las estructuras de datos con
-sus comportamientos. En este modelo se destacan conceptos básicos tales como objetos, clases y
-herencia.
-\\
-\\
-Entre estos dos modelos existe una brecha denominada desajuste por impedancia dada por las
-diferencias entre uno y otro. Una de las diferencias se debe a que en los sistemas de bases de datos
-relacionales, los datos siempre se manejan en forma de tablas, formadas por un conjunto de filas o
-tuplas; mientras que en los entornos orientados a objetos los datos son manipulados como objetos,
-formados a su vez por objetos y tipos elementales.
-La gran mayoría de los lenguajes de programación como java o C, tienen un modelo de manejo de datos
-basado en leer, escribir o modificar registros de uno en uno. Por ello, cuando se invoca el lenguaje de
-consulta SQL (Standard Query Language) desde un lenguaje de programación es necesario un
-mecanismo de vinculación que permita recorrer las filas de una consulta a la base de datos y acceder de
-forma individual a cada una de ellas.\cite{referenciarobles1}
-\\
-\\
-Además en el modelo relacional no se puede modelar la herencia que aparece en el modelo orientado a
-objetos y existen también desajustes en los tipos de datos, ya que los tipos y denotaciones de tipos
-asumidos por las consultas y lenguajes de programación difieren. Esto concierne a tipos atómicos como
-integer, real, boolean, etc. La representación de tipos atómicos en lenguajes de programación y en
-bases de datos pueden ser significativamente diferentes, incluso si los tipos son denotados por la misma
-palabra reservada, ej.: integer. Esto ocurre también con tipos complejos como las tablas, un tipo de
-datos básico en SQL ausente en los lenguajes de programación.
-\\
-\\
-Para atenuar los efectos del desajuste por impedancia entre ambos modelos existen varias técnicas y
-prácticas como los Objetos de Acceso a Datos (Data Acces Objects o DAOs), marcos de trabajo de
-persistencia (Persistence Frameworks), mapeadores Objeto/Relacionales (Object/Relational Mappers u
-ORM), consultas nativas (Native Queries), lenguajes integrados como PL-SQL de Oracle y T-SQL de SQL
-Server; mediadores, repositorios virtuales y bases de datos orientadas a objetos.
-\\
-\\
-Las soluciones al problema de la impedancia mencionadas anteriormente presentan ventajas y
-desventajas que deberán ser evaluadas según las características y requisitos del sistema a desarrollar. En
-el presente artículo se propone el uso de las herramientas de mapeo Objeto/Relacional como una
-alternativa a este problema.
+En este articulo explicaremos comenzando sobre las definiciones existentes de Mapeo de Objeto Relacional y como esto influye en la parte de la programacion a la confersion de datos para el uso en un sistema gestor de base de datos
+, hablando a su ves de Patron Repository , las ventajas de usar esta tecnica como tambien las desventajas de usarla , dando a su vez nuestro analisis de acuerdo a las fuentes relacionadas con sus respectivas conclusiones de lo entendido.
 %%-------------------------------------------------------------------------------------------
 
 %MARCO TEORICO-------------------------------------------------------------------------------------------
 \section{Marco Teórico}
-
+%%http://thatcsharpguy.com/posts/orm-mapeo-objeto-relacional/
 \subsection{Definición}
 
-El mapeo objeto-relacional es una técnica de programación para convertir datos del sistema de tipos
-utilizado en un lenguaje de programación orientado a objetos al utilizado en una base de datos
-relacional. En la práctica esto crea una base de datos virtual orientada a objetos sobre la base de datos 
-Osmel Yanes Enriquez, Hansel Gracia del Busto
-3
- Revista Telem@tica. Vol. 10. No. 3, septiembre-diciembre, 2011. ISSN 1729-3804
-relacional. Esto posibilita el uso de las características propias de la orientación a objetos (esencialmente
-la herencia y el polimorfismo).
-Las bases de datos relacionales solo permiten guardar tipos de datos primitivos (enteros, cadenas de
-texto, etc.) por lo que no se pueden guardar de forma directa los objetos de la aplicación en las tablas,
-sino que estos se deben de convertir antes en registros, que por lo general afectan a varias tablas. En el
-momento de volver a recuperar los datos, hay que hacer el proceso contrario, se deben convertir los
-registros en objetos. Es entonces cuando ORM cobra importancia, ya que se encarga de forma
-automática de convertir los objetos en registros y viceversa, simulando así tener una base de datos
-orientada a objetos [2].
+ORM es el nombre de la técnica, también se suele conocer como ORMs a los frameworks que la implementan, como EntityFramework en .NET, Hibernate 
+en Java y ActiveRecord en Ruby. Estos ORMs usan convenciones de nombres, archivos de configuración en XML o anotaciones dentro del código para
+ configurar la relación que existe entre una clase de nuestro lenguaje orientado a objetos y una tabla en la base de datos.
+\\
+El uso de una herramienta de ORM introduce una capa de abstracción entre la base de datos y el desarrollador, ya que gracias a este mapeo, los ORM evitan que el 
+desarrollador tenga que escribir consultas "a mano" para recuperar, filtrar, agrupar, eliminar, actualizar o insertar datos en la base, será tarea del ORM transformar las
+ operaciones hechas a nivel orientado a objetos a sentencias SQL con las que la base de datos puede trabajar.\cite{referenciarobles1}
+\\
 Entre las ventajas que ofrecen los ORM se encuentran: rapidez en el desarrollo, abstracción de la base
 de datos, reutilización, seguridad, mantenimiento del código, lenguaje propio para realizar las consultas.
 No obstante los ORM traen consigo algunas desventajas como el tiempo invertido en el aprendizaje.
@@ -118,46 +74,33 @@ debido a que todas las consultas que se hagan sobre la base de datos, el sistema
 transformarlas al lenguaje propio de la herramienta, luego leer los registros y por último crear los
 objetos.
 En el mapeo objeto-relacional encontramos el uso de algunos patrones de diseño como el Repository y
-el Active Record.
-\cite{referenciarobles2}
+el Active Record.\cite{referenciarobles2}
 
 %% FIN - ANTHONYROBLES *************************************************************************************************************************************************************************************************
 
-\subsection{¿Qué es Agile?}
-La metodología ágil es también una metodología de desarrollo de software que surgió alrededor del año 2001, cuando se presentó el manifiesto ágil. Emplea cuatro valores y doce principios que ayudan a construir una cultura de desarrollo de software "ágil".
-
-En términos generales, ágil fomenta la adopción y una mentalidad de liderazgo que promueve el trabajo en equipo, la autoorganización y la responsabilidad. Más importante aún, el enfoque ágil se enfoca más en alinear continuamente el desarrollo con las necesidades y tendencias del cliente, incluso cuando esas necesidades y tendencias cambian al final del proceso de desarrollo.
-\\
-\\
-Agile incorpora un conjunto de principios que ayudan a individuos, equipos y unidades más grandes a trabajar juntos. La "mentalidad ágil" se enfoca más en las personas que en los procesos y herramientas. Una organización ágil se adapta y aprende sobre el cambio constante que les permite identificar nuevas oportunidades y añadir más valor para los clientes. "SQL-92" o "SQL2".\cite{referenciarobles1}
-\\
-%%S*******************************************************************************************************************
-
-\subsection{Requisitos para implementar una cultura DevOps}
-Lo primero es comunicar que la cultura DevOps se va a implementar, mencionando los beneficios y haciendo que el equipo se sienta parte del cambio. Luego explicar las acciones que se van a tomar, no importa que no sean desarrolladores.
-
-La comunicación y colaboración para tener una cultura DevOps son cruciales, es un trabajo entre los desarrolladores y los equipos encargados de la infraestructura de los servidores.
-
-La tarea principal será la automatización, reducir los tiempos de despliegue del producto y mantener una calidad de desarrollo y estabilidad para el usuario. Debes tener claro que esto será un proceso sin fin, por lo que cada mejora te dará el tiempo que dedicarás para innovar el proceso y hacerlo cada vez mejor.\cite{referenciarobles2}
 
 
 %%JOSE LUIS*******************************************************************************************************************
 \subsection{Patrón Repository}
+
 El patrón Repository utiliza un repositorio para separar la lógica que recupera los datos y los mapea al modelo de entidades, de la lógica del negocio que actúa en el modelo. El repositorio media entre la capa de fuente de datos y la capa de negocios de la aplicación; encuesta a la fuente de datos, mapea los datos obtenidos de la fuente de datos a la entidad de negocio y persisten los cambios de la entidad de negocio a la fuente de datos. En la figura 1 se muestra un esquema patrón Repository.
 
-Los repositorios son puentes entre los datos y las operaciones que se encuentran en distintos dominios. Un repositorio elabora las consultas correctas a la fuente de datos y mapea los resultados a las entidades de negocio expuestas externamente. Los repositorios eliminan las dependencias a tecnologías específicas proveyendo acceso a datos de cualquier tipo.\cite{referenciaQuispe1}
+Los repositorios son puentes entre los datos y las operaciones que se encuentran en distintos dominios. Un repositorio elabora las consultas correctas a la fuente de datos y mapea los resultados a las entidades de negocio expuestas externamente. Los repositorios eliminan las dependencias a tecnologías específicas proveyendo acceso a datos de cualquier tipo.
 
-El patrón de diseño Repository puede ayudar a separar las capas de una aplicación web ASP.NET ya que provee una arquitectura de 3 capas separadas, lo que mejora el mantenimiento de la aplicación y ayuda a reducir errores. Además facilita las pruebas unitarias.
+El patrón de diseño Repository puede ayudar a separar las capas de una aplicación web ASP.NET ya que provee una arquitectura de 3 capas separadas, lo que mejora el mantenimiento de la aplicación y ayuda a reducir errores. Además facilita las pruebas unitarias.\cite{referenciaQuispe1}
 
 \subsection{Patrón Active Record}
 Active Record es un patrón en el cual, el objeto contiene los datos que representan a una fila (o tupla) de nuestra tabla o vista, además de encapsular la lógica necesaria para acceder a la base de datos. De esta forma el acceso a datos se presenta de manera uniforme a través de la aplicación (lógica de negocio + acceso a datos en una misma clase). En la figura 2 se muestra un esquema del patrón Active Record.
 
-Una clase Active Record consiste en el conjunto de propiedades que representa las columnas de la tabla más los típicos métodos de acceso como las operaciones CRUD (Create, Read, Update, Delete), búsqueda (Find), validaciones, y métodos de negocio.\cite{referenciaQuispe2}
+Una clase Active Record consiste en el conjunto de propiedades que representa las columnas de la tabla más los típicos métodos de acceso como las operaciones CRUD (Create, Read, Update, Delete), búsqueda (Find), validaciones, y métodos de negocio.
 
 Este patrón constituye la aproximación más obvia, poniendo el acceso a la base datos en el propio objeto de negocio. De este modo es evidente como manipular la persistencia a través de él mismo. Gran parte de este patrón viene de un Domain Model y esto significa que las clases están muy cercanas a la representación en la base de datos. Cada Active Record es responsable de sí mismo, tanto en lo
-relacionado con persistencia como en su lógica de negocio.\cite{referenciaQuispe3}
+relacionado con persistencia como en su lógica de negocio.
+
+\cite{referenciaQuispe2}
 
 \subsection{SubSonic y NHibernate}
+
 Las herramientas ORM (Object-Relational Mapping) se utilizan para convertir los datos entre el sistema de tipos utilizado en un lenguaje de programación orientado a objetos y el utilizado en una base de datos relacional, a través de un motor de persistencia. Esto se traduce en que las herramientas ORM permiten almacenar objetos en una base de datos de forma permanente, y extraerlos cuando sea
 necesario.
 
@@ -166,58 +109,40 @@ Subsonic es una herramienta ORM libre, de código abierto creada por Rob Conery.
 A diferencia de otros ORM, SubSonic usa el método de la generación y compilación del nivel de acceso de datos en lugar de realizar una asignación basada en reflexión en el tiempo de ejecución. Al igual que muchos ORM, SubSonic soporta los sistemas de bases de datos más comunes, entre ellos: SQL Server, MySQL, SQLite, Oracle, IBM DB2, PostgreSQL, SQL CE, VistaDB y también hace muy fácil la migración del
 acceso a datos entre estos.
 
-NHibernate es la conversión de Hibernate de lenguaje Java a C# para su integración en la plataforma .NET. Al igual que Hibernate, NHibernate es una herramienta de ORM que facilita el mapeo de atributos entre una base de datos relacional tradicional y el modelo de objetos de una aplicación, mediante archivos declarativos (XML). Hibernate fue una iniciativa de un grupo de desarrolladores dispersos
+NHibernate es la conversión de Hibernate de lenguaje Java a Csharp para su integración en la plataforma .NET. Al igual que Hibernate, NHibernate es una herramienta de ORM que facilita el mapeo de atributos entre una base de datos relacional tradicional y el modelo de objetos de una aplicación, mediante archivos declarativos (XML). Hibernate fue una iniciativa de un grupo de desarrolladores dispersos
 alrededor del mundo conducido por Gaving King.
 
-Al usar NHibernate para el acceso a datos el desarrollador se asegura de que su aplicación es agnóstica en cuanto al motor de base de datos a utilizar en producción, pues NHibernate soporta los más habituales en el mercado: MySQL, PostgreSQL, Oracle, MS SQL Server, etc. Sólo se necesita cambiar una línea en el fichero de configuración para que podamos utilizar una base de datos distinta. Ambas herramientas tienen sus ventajas y desventajas, pero generalmente la selección de uno u otro es una cuestión de preferencia personal.
-
-
-%%PORLES
-
-
-
-%%SANDOVAL
-\subsection{Ventajas y Desventajas}
-
-%%*****************************
-
-
-\ begin { itemize }
-\ item Ventajas :
-\ begin { enumerate }
-\ item Rapidez en el desarrollo 
-\ item Abstraccion de la base de datos 
-\ item Reutilización.
-\ item Seguridad.
-\ item Mantenimiento del código.
-\ item Lenguaje propio para realizar las consultas.
-
-\end{ enumerate }
-\ item Desventajas :
-\ begin { enumerate }
-\ item Tiempo utilizado en el aprendizaje. Este tipo de herramientas suelen ser complejas por lo que su correcta utilización lleva un tiempo que hay que emplear en ver el funcionamiento correcto y ver todo el partido que se le puede sacar. 
-\ item Aplicaciones algo más lentas. Esto es debido a que todas las consultas que se hagan sobre la base de datos, el sistema primero deberá de transformarlas al lenguaje propio de la herramienta, luego leer los registros y por último crear los objetos.
-\end{ itemize }
-
+Al usar NHibernate para el acceso a datos el desarrollador se asegura de que su aplicación es agnóstica en cuanto al motor de base de datos a utilizar en producción, pues NHibernate soporta los más habituales en el mercado: MySQL, PostgreSQL, Oracle, MS SQL Server, etc. Sólo se necesita cambiar una línea en el fichero de configuración para que podamos utilizar una base de datos distinta. Ambas herramientas tienen sus ventajas y desventajas, pero generalmente la selección de uno u otro es una cuestión de preferencia personal.\cite{referenciaQuispe1}
 \\
-\\
-Las bases de datos relacionales solo permiten guardar tipos de datos primitvos (enteros,cadenas de texto,etc…) por lo que no se puede guardar de forma directa los objetos de laaplicación en las tablas, sino que estos se deben de convertir antes en registros, que por logeneral afectan a varias tablas. En el momento de volver a recuperar los datos, hay quehacer el proceso contrario, se deben convertir los registros en objetos.
-\\
-Es entonces cuando ORM cobra importancia, ya que se encarga de forma automática deconvertir los objetos en registros y viceversa, simulando así tener una base de datosorientada a objetos.ORM 
-
-
-
-
-
-
-
-
 
 
 %%*******************************************************************************************************************%%sandoval
-\section{Analisis}
 
-AGREGAR CONTENIDO
+\subsection{Ventajas}
+
+\begin{itemize}
+\item Rapidez en el desarrollo 
+\item Abstraccion de la base de datos 
+\item Mejora Continua: la cultura DevOps se centra en la mejora continua para minimizar el desperdicio. Continuamente acelera la mejora del producto o los servicios ofrecidos.
+\item Reutilización.
+\item Seguridad.
+\item Mantenimiento del código.
+\item Lenguaje propio para realizar las consultas.
+\end{itemize}\cite{referenciaSandoval1}
+
+
+
+
+\subsection{Desventajas}
+\begin{itemize}
+\item Tiempo utilizado en el aprendizaje. Este tipo de herramientas suelen ser complejas por lo que su correcta utilización lleva un tiempo que hay que emplear en ver el funcionamiento correcto y ver todo el partido que se le puede sacar. 
+
+\item Aplicaciones algo más lentas. Esto es debido a que todas las consultas que se hagan sobre la base de datos, el sistema primero deberá de transformarlas al lenguaje propio de la herramienta, luego leer los registros y por último crear los objetos.\cite{referenciaSandoval2}
+
+\end{itemize}
+
+
+
 
 %%-------------------------------------------------------------------------------------------
 
@@ -232,6 +157,7 @@ evitando siempre que sea posible las inyecciones de SQL Inline.
 Lo anteriormente expuesto libera a los desarrolladores de aplicaciones de la responsabilidad de conocer las múltiples variantes de SQL que existen en función del gestor de bases de datos que se utilice. No obstante, en escenarios en que se necesite hacer un uso más eficiente del sistema de almacenamiento de información, personalizado de acuerdo a las necesidades de la aplicación, y se escoja como gestor de bases de datos una variante NoSQL no es necesaria la utilización de un ORM.
 
 En resumen, en dependencia del gestor de bases de datos a emplear, se recomienda siempre que sea posible y sea factible la utilización de un ORM.	
+
 
 %%-------------------------------------------------------------------------------------------
 
